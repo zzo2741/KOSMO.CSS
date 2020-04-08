@@ -66,6 +66,41 @@
             color: blue;
             font-size: 16px;
         }
+
+        /* 
+        6. 아이디선택자 : 아이디속성으로 선택가능하며 #을 통해 접근한다.
+            아이디 속성은 HTML문서에 하나만 지정 가능하다.
+         */
+        #bas {
+            color: #664599;
+            font-size: 26px;
+        }
+
+        /* 
+        7. 다중선택자 : 여러 개의 선택자를 한꺼번에 지정해서 스타일을 부여할 때 사용한다.
+            이때 구분은 ,(컴마)를 통해서 하게 된다.
+         */
+        .multi h2,
+        .multi h3,
+        .multi h4 {
+            color: blue;
+        }
+
+        /* 
+        li태그의 하위 엘리먼트중에서 myclass가 있는지를 찾아서 선택한다.
+        현재 "난노랑" 부분이 선택되어져서 노란색으로 표현된다.
+         */
+        li .myclass {
+            color: yellow;
+        }
+
+        /*
+        태그선택자와 클래스선택자 사이에 공백이 없으면 li태그주엥서 myclass가 있는지를 찾아서 선택한다.
+        축구와 배구가 선택되어 빨간색으로 표현된다
+        */
+        li.myclass {
+            color: red;
+        }
     </style>
 </head>
 
@@ -87,6 +122,21 @@
             <span>fieldset 태그안의 span태그[myDiv의 하위태그]</span>
         </fieldset>
     </div>
+
+    <h2>아이디선택자</h2>
+    <ul>
+        <li class="myclass">축구<span class="myclass">[난 노랑]</span></li>
+        <li id="bas">농구</li>
+        <li class="myclass">배구</li>
+    </ul>
+    <h2>다중선택자</h2>
+    <div class="multi">
+        <h2>제목1</h2>
+        <h3>제목2</h3>
+        <h4>제목3</h4>
+        <h5>제목4</h2>
+    </div>
+
 </body>
 
 </html>
