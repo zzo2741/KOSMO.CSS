@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* li태그로 top메뉴 만들기 */
+        #topmenu li {
+            /* 
+            1. block속성을 inline속성으로 변경한다.
+            2. 각각의 li태그의 오른쪽 테두리를 2px 회색 실선으로 지정한다.
+            3. 오른쪽 패딩으로 간격을 띄워준다.
+             */
+            display: inline;
+            border-right: 2px gray solid;
+            padding-right: 7px;
+        }
+
+        #topmenu li:last-child {
+            /* 마지막 li태그에 테두리를 제거 */
+            border: non;
+        }
+
+        #topmenu li a {
+            /* 링크가 있는 부분에 밑줄제거 및 색깔 적용 */
+            text-decoration: none;
+            color: black;
+        }
+
+        #topmenu li a:hover {
+            /* 링크에 마우스 오버시 밑줄처리 및 색깔 적용                                                                                                                                                                                                                                                                                                                                                                                                                      */
+            text-decoration: underline;
+            color: silver;
+        }
+
+        /* 
+        블릿의 모양, 위치 설정.
+        위치가 inside인 경우에는 블릿이 영역 안쪽으로 표시된다.
+         */
+        .sport {
+            border: 5px solid blue;
+            list-style-type: upper-roman;
+            list-style-position: inside;
+        }
+
+        .sport li {
+            border: 1px solid red;
+        }
+
+        /* 기본 블릿 대신에 커스텀 이미지로 설정 */
+        .food_image {
+            list-style-image: url('./images/bullet.png');
+        }
+
+        /* 
+        리스트에서 블릿만 제거하기.
+        이 경우 블릿이 있던 부분에 들여쓰기 효과가 있으므로 margin을 음수값으로 적용하여 좌측으로 위치를 옮겨 준다.
+        */
+        ul.bullet {
+            list-style-type: none;
+            border: 1px solid yellowgreen;
+            margin-left: -30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>ul/ol/li 태그로 상단메뉴 구현하기</h2>
+    <!-- filedset>legend+ul#topmenu>(li>a[href=#])*5 -->
+    <fieldset>
+        <legend>Top메뉴</legend>
+        <ul id="topmenu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+            <li><a href="#">장바구니</a></li>
+            <li><a href="#">고객센터</a></li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>당신이 가장 좋아하는 스포츠?</legend>
+        <ul class="sport">
+            <li>축구</li>
+            <li>야구</li>
+            <li>배구</li>
+            <li>농구</li>
+            <li>핸드볼</li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>당신이 가장 좋아하는 음식? </legend>
+        <ul class="food_image">
+            <li>짜장면</li>
+            <li>짬뽕</li>
+            <li>된장찌게</li>
+            <li>김치찌게</li>
+            <li>물냉</li>
+            <li>비냉</li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>당신이 좋아하는 위인은?</legend>
+        <h3>블릿만 제거하기</h3>
+        그냥 text
+        <ul class="bullet">
+            <li>세종대왕</li>
+            <li>이순신</li>
+            <li>정조대왕</li>
+        </ul>
+    </fieldset>
+</body>
+
+</html>
