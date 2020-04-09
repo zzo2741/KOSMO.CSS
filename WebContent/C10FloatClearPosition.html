@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C10FloatClearPosition.html</title>
+    <style>
+        .div1 {
+            background-color: red;
+        }
+
+        .div2 {
+            background-color: green;
+        }
+
+        .div3 {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Div 배치(레이아웃)관련 속성</h2>
+    <!-- 
+        float속성 : 주로 CSS에서 배치를 위해 사용된다.
+            왼쪽 혹은 오른쪽으로 띄워서 정렬하거나 문서를 배치할 때 사용한다.    
+    -->
+    <fieldset>
+        <legend>float속성(div의 width미지정)</legend>
+        <!-- 
+            레이어의 사이즈를 미지정 한 경우에는 float속성을 부여한 엘리먼트 뒤에 있는 엘리먼트가 우측에 붙게된다.
+        -->
+        <div class="div1" style="float: left;">div1</div>
+        <div class="div2" style="float: right;">div2</div>
+        <div class="div3">div3</div>
+    </fieldset>
+
+    <fieldset>
+        <legend>float속성(div의 width지정)</legend>
+        <!-- 
+            레이어의 사이즈를 지정한 경우에는 정렬하고자 하는 엘리먼트와 앞에 있는 엘리먼트 모두에게 float속성을 부여해야 한다. 
+        -->
+        <div class="div1" style="float: left; width: 100px;">div1</div>
+        <div class="div2" style="float: left; width: 100px;">div2</div>
+        <div class="div3" style="float: right; width: 100px;">div3</div>
+    </fieldset>
+
+    <fieldset>
+        <legend>float의 속성 제거 > clear</legend>
+        <!-- 
+            clear : 앞의 div에 설정한 float속성값이 남아서 뒤에 정의한 div에 영향을 미치는 경우 float의 속성을 파괴하기 위해 사용한다.
+         -->
+        <div>
+            <div class="div1" style="width: 100px; height: 100px; float: left;">div1</div>
+            <div class="div2" style="width: 100px; height: 100px; float: left;">div2</div>
+        </div>
+        <!-- 
+            여기서 clear속성이 없으면 div3은 div1, div2 아래쪽으로 파고들어가게 된다. 정상적인 배치를 위해 앞의 float속성을 제거해야 한다.
+        -->
+        <div style="clear:both"></div>
+        <div class="div3" style="width: 250px; height: 120px;">div3</div>
+    </fieldset>
+
+    <!-- 
+        부모 하위의 위치를 기준으로 좌측에서 30 상단에서 10만큼 간격이 떨어진다.
+     -->
+    <fieldset style="position: relative;">
+        <legend>position : relative</legend>
+        <div class="div1" style="position: relative; left: 30px; top:10px; width: 100px; height: 100px;">relative</div>
+    </fieldset>
+
+    <!-- 
+        부모의 좌측상단을 기준으로 좌에서 100, 상단에서 50만큼 간격이 떨어진다. relative와 기준위치가 다르다.
+     -->
+    <fieldset style="position: absolute;">
+        <legend>position : absolute</legend>
+        <div class="div1" style="position: absolute; left: 100px; top:50px; width: 100px; height: 100px;">absolute</div>
+    </fieldset>
+
+    <p style="height: 200px;"></p>
+
+    <!-- 
+        static일때는 위치값을 임의로 조정할 수 없다. 아래의 경우 모두 고정된 위치에 출력된다.
+     -->
+    <fieldset style=" position: static;">
+        <legend>position : static</legend>
+        <div class="div1" style="position: static; left: 0px; top:0px; width: 50px; height: 50px;">box1(0,0)</div>
+        <legend>position : static</legend>
+        <div class="div2" style="position: static; left: 100px; top:100px; width: 50px; height: 50px;">
+            box2(100,100)
+            <!-- left,top 적용안됨 -->
+        </div>
+        <legend>position : static</legend>
+        <div class="div3" style="position: static; left: 100px; top:100px; width: 50px; height: 50px;">
+            box3(100,100)
+            <!-- left,top 적용안됨 -->
+        </div>
+    </fieldset>
+
+    <!-- 
+        앞서 배치된 엘리먼트의 위치의 상대위치를 지정하게 되어 box2의 경우 box1아래쪽에 배치된다.
+        그리고 엘리먼트끼리 겹쳐지는 경우는 발생하지 않는다.
+     -->
+    <fieldset style=" position: relative;">
+        <legend>position : static</legend>
+        <div class="div1" style="position: relative; left: 0px; top:0px; width: 50px; height: 50px;">box1(0,0)</div>
+        <legend>position : static</legend>
+        <div class="div2" style="position: relative; left: 50px; top:0px; width: 50px; height: 50px;">
+            box2(50,0)
+        </div>
+        <legend>position : static</legend>
+        <div class="div3" style="position: relative; left: 100px; top:0px; width: 50px; height: 50px;">
+            box3(100,0)
+        </div>
+    </fieldset>
+
+    <!-- 
+        엘리먼트가 absolute인 경우 부모엘리먼트가
+            position속성이 있는 경우
+                부모 좌측상단이 기준점이 된다.
+            position속성이 없는 경우
+                웹브라우저의 좌측상단이 기준점이 된다.
+                따라서 원하는 어떤 위치에도 레이어를 floation시킬 수 있다.
+            position default값이 static이다.
+     -->
+    <fieldset style=" position: relative;">
+        <legend>position : static</legend>
+        <div class="div1" style="position: absolute; left: 0px; top:0px; width: 50px; height: 50px;">box1(0,0)</div>
+        <legend>position : static</legend>
+        <div class="div2" style="position: absolute; left: 25px; top:25px; width: 50px; height: 50px;">
+            box2(25,25)
+        </div>
+        <legend>position : static</legend>
+        <div class="div3" style="position: absolute; left: 50px; top:50px; width: 50px; height: 50px; opacity: 50%;">
+            box3(50,50)
+        </div>
+    </fieldset>
+
+    <p style="height: 100px;"></p>
+
+    <!-- 
+        z-index : 레이어의 우선순위를 지정할 때 사용한다.
+            1~9999까지 사용할 수 있고 숫자가 클수록 높은 우선순위를 가지게 된다.
+            단, 동일한 우선순위를 부여하면, 나중에 배치된 엘리먼트가 높은 우선순위를 가지게 된다.
+     -->
+    <fieldset style=" position: relative;">
+        <legend>position : static</legend>
+        <div class="div1" style="position: absolute; left: 0px; top:0px; width: 50px; height: 50px; z-index: 9999;">
+            box1(0,0)</div>
+        <legend>position : static</legend>
+        <div class="div2" style="position: absolute; left: 25px; top:25px; width: 50px; height: 50px; z-index: 2">
+            box2(25,25)
+        </div>
+        <legend>position : static</legend>
+        <div class="div3"
+            style="position: absolute; left: 50px; top:50px; width: 50px; height: 50px; opacity: 50%; z-index: 2">
+            box3(50,50)
+        </div>
+    </fieldset>
+</body>
+
+</html>

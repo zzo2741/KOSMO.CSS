@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <style>
+        caption {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        th {
+            color: white;
+            font-size: 1.5em;
+        }
+
+        table {
+            border-spacing: 5px;
+        }
+
+        tr th {
+            width: 25%;
+        }
+
+        #calcularor {
+            background-color: #DDDDDD;
+            border-radius: 10px;
+            width: 450px;
+            height: 350px;
+        }
+
+        #result {
+            background-color: #70C738;
+            border-radius: 10px;
+            font-size: 2.5em;
+            color: #373737;
+            text-align: right;
+            padding-right: 20px;
+        }
+
+        #cancel {
+            background-color: #7B7B7B;
+            border-radius: 10px;
+            width: 50%;
+        }
+
+        #number {
+            background-color: #373737;
+            border-radius: 10px;
+        }
+
+        #operator {
+            background-color: #FA960A;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="calcularor">
+        <caption>계산기</caption>
+        <tr>
+            <th id="result" colspan="4">123+654</th>
+        </tr>
+        <tr>
+            <th id="cancel" colspan="2">BackSpace</th>
+            <th id="cancel" colspan="2">C</th>
+        </tr>
+        <tr>
+            <th id="number">1</th>
+            <th id="number">2</th>
+            <th id="number">3</th>
+            <th id="operator">/</th>
+        </tr>
+        <tr>
+            <th id="number">4</th>
+            <th id="number">5</th>
+            <th id="number">6</th>
+            <th id="operator">x</th>
+        </tr>
+        <tr>
+            <th id="number">7</th>
+            <th id="number">8</th>
+            <th id="number">9</th>
+            <th id="operator">+</th>
+        </tr>
+        <tr>
+            <th id="number">=</th>
+            <th id="number">0</th>
+            <th id="number">.</th>
+            <th id="operator">-</th>
+        </tr>
+    </table>
+</body>
+
+</html>
