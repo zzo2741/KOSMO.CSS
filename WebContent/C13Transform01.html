@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C13Transform01</title>
+    <style>
+        /* 기본상태일 때 */
+        #rect {
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            text-align: center;
+            background-image: url(./images/1.png);
+            /* 
+            변형이 1초동안 진행된다. 변형되는 시간이 설정되면서 마치 애니메이션과 같은 효과가 나타난다. 
+            */
+            transition-duration: 1s;
+        }
+
+        /* 마우스 오버 시 */
+        #rect:hover {
+            width: 500px;
+            height: 500px;
+            line-height: 300px;
+            background-color: green;
+
+            font-size: 2em;
+        }
+
+        /* 마우스 클릭 시 */
+        #rect:active {
+            width: 250px;
+            height: 250px;
+            line-height: 250px;
+            background-color: blue;
+            border-radius: 110px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Transform(변형1)</h2>
+
+    <div id="rect">
+        나는 스폰지밥
+    </div>
+</body>
+
+</html>
